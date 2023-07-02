@@ -1,11 +1,144 @@
-<!-- src/template.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<title><%= htmlWebpackPlugin.options.title %></title>
+	<title>
+		<%= htmlWebpackPlugin.options.title %>
+	</title>
 </head>
 
-<body>
-	<div id="root"></div>
+<body class="page">
+	<div class="page__container">
+		<aside class="page__control control-matrix">
+			<div class="control-matrix__mult">
+				<button id="mult-matrix" class="btn btn--theme-green">Умножить&nbsp;матрицы</button>
+			</div>
+			<div class="control-matrix__clean">
+				<button id="clean-matrix" class="btn"><span class="icon icon--theme-clear"></span>Очистить матрицы</button>
+				<br>
+				<button id="swap-matrix" class="btn"><span class="icon icon--theme-revers"></span>
+					Поменять матрицы местами</button>
+			</div>
+			<div class="control-matrix__generate">
+				<label class="control-matrix__label">
+					<input type="radio" id="radio-matA" name="matsel" value="matA" checked>
+					Матрица A
+				</label>
+				<label class="control-matrix__label">
+					<input type="radio" id="radio-matB" name="matsel" value="matB">
+					Матрица B
+				</label>
+				<button id="add-tr" class="btn"><span class="icon icon--theme-plus"></span>Добавить</button>
+				<button id="remove-tr" class="btn"><span class="icon icon--theme-minus"></span>Удалить</button>
+				<p>строки</p>
+				<br>
+				<button id="add-td" class="btn"><span class="icon icon--theme-plus"></span>Добавить</button>
+				<button id="remove-td" class="btn"><span class="icon icon--theme-minus"></span>Удалить</button>
+				<p>столбцы</p>
+			</div>
+			<div class="control-matrix__error-info">Текс ошибки!</div>
+		</aside>
+		<div class="page__matrix">
+			<div class="matrix">
+				<div id="matC">
+					<table class="matrix__table">
+						<tbody>
+							<tr>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="c00" disabled=""></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="c01" disabled=""></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="c02" disabled=""></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="c03" disabled=""></td>
+							</tr>
+							<tr>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="c10" disabled=""></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="c11" disabled=""></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="c12" disabled=""></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="c13" disabled=""></td>
+							</tr>
+							<tr>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="c20" disabled=""></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="c21" disabled=""></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="c22" disabled=""></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="c23" disabled=""></td>
+							</tr>
+							<tr>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="c30" disabled=""></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="c31" disabled=""></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="c32" disabled=""></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="c33" disabled=""></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="matrix">
+				<div id="matA">
+					<table class="matrix__table">
+						<tbody>
+							<tr>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="a00"></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="a01"></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="a02"></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="a03"></td>
+							</tr>
+							<tr>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="a10"></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="a11"></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="a12"></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="a13"></td>
+							</tr>
+							<tr>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="a20"></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="a21"></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="a22"></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="a23"></td>
+							</tr>
+							<tr>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="a30"></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="a31"></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="a32"></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="a33"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="matrix__name">A</div>
+			</div>
+			<div class="matrix">
+				<div id="matB">
+					<table class="matrix__table">
+						<tbody>
+							<tr>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="b00"></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="b01"></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="b02"></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="b03"></td>
+							</tr>
+							<tr>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="b10"></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="b11"></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="b12"></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="b13"></td>
+							</tr>
+							<tr>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="b20"></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="b21"></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="b22"></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="b23"></td>
+							</tr>
+							<tr>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="b30"></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="b31"></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="b32"></td>
+								<td class="matrix__item"><input class="matrix__input" type="text" value="" placeholder="b33"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="matrix__name">B</div>
+			</div>
+		</div>
+	</div>
 </body>
+
 </html>
